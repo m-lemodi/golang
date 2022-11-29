@@ -25,7 +25,6 @@ func main() {
 		panic(err)
 	}
 	fmt.Println(driver.Capabilities())
-	defer driver.Close()
 	defer driver.Quit()
 
 	// Get on first website
@@ -39,7 +38,7 @@ func main() {
 	}
 
 	// Get on second website
-	err = driver.Get("https://51.159.123.1/~mfarez")
+	err = driver.Get("https://51.159.123.1/~checktest")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -48,7 +47,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	err = ScreenHandler(screenSource, screenTarget)
+	err = ScreenHandler(screenSource, screenTarget, "mfarez")
 	if err != nil {
 		fmt.Println(err)
 	}
