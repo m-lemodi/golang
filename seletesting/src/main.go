@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/tebeka/selenium"
-	fox "github.com/tebeka/selenium/firefox"
+	"github.com/tebeka/selenium/chrome"
 )
 
 func main() {
@@ -13,12 +13,11 @@ func main() {
 	fmt.Println(">----------------------")
 
 	// Connect to server
-
-	caps := selenium.Capabilities{"browserName": "firefox"}
-	firefoxCaps := fox.Capabilities{
+	caps := selenium.Capabilities{"browserName": "chrome"}
+	chromeCaps := chrome.Capabilities{
 		Args: []string{"--ignore-certificate-errors"},
 	}
-	caps.AddFirefox(firefoxCaps)
+	caps.AddChrome(chromeCaps)
 
 	driver, err := selenium.NewRemote(caps, "http://localhost:4444/wd/hub")
 	if err != nil {
@@ -28,7 +27,7 @@ func main() {
 	defer driver.Quit()
 
 	// Get on first website
-	err = driver.Get("https://mfarez.leluke.com")
+	err = driver.Get("http://mfarez.leluke.com")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -38,7 +37,7 @@ func main() {
 	}
 
 	// Get on second website
-	err = driver.Get("https://51.159.123.1/~checktest")
+	err = driver.Get("http://51.159.123.1/~mfarez")
 	if err != nil {
 		fmt.Println(err)
 	}

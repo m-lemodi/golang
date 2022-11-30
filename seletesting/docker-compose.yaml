@@ -3,8 +3,8 @@
 # To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-v3.yml down`
 version: "3"
 services:
-  firefox:
-    image: selenium/node-firefox:4.6.0-20221104
+  chrome:
+    image: selenium/node-chrome:4.6.0-20221104
     shm_size: 2gb
     depends_on:
       - selenium-hub
