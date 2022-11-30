@@ -23,7 +23,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(driver.Capabilities())
 	defer driver.Quit()
 
 	// Get on first website
